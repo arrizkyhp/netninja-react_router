@@ -1,7 +1,13 @@
 import { StrictMode, Suspense } from 'react';
 import ReactDOM from 'react-dom/client';
-import { BrowserRouter, NavLink, Route, Routes } from 'react-router-dom';
+import {
+  createBrowserRouter,
+  createRoutesFromElements,
+  Route,
+  RouterProvider,
+} from 'react-router-dom';
 
+import RootLayout from '@/components/layout/RootLayout';
 import About from '@/pages/About';
 import Home from '@/pages/Home';
 
@@ -9,27 +15,21 @@ import App from './App';
 
 import './index.css';
 
+const router = createBrowserRouter(
+  createRoutesFromElements(
+    <Route path="/" element={<RootLayout />}>
+      <Route index element={<Home />} />
+      <Route path="about" element={<About />} />
+    </Route>,
+  ),
+);
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <StrictMode>
-    <BrowserRouter>
-      <Suspense fallback={<div>Loading</div>}>
-        <header>
-          <nav>
-            <h1>Practice Router</h1>
-            <div className="menuLink">
-              <NavLink to="/">Home</NavLink>
-              <NavLink to="about">About</NavLink>
-            </div>
-          </nav>
-        </header>
-        <main>
-          <Routes>
-            <Route index element={<Home />} />
-            <Route path="about" element={<About />} />
-          </Routes>
-        </main>
-      </Suspense>
-      <App />
-    </BrowserRouter>
+    <Suspense fallback={<div>Loading</div>}>
+      <RouterProvider router={router} />
+      {/* <main></main> */}
+    </Suspense>
+    <App />
   </StrictMode>,
 );
