@@ -1,0 +1,9 @@
+.button {
+  @apply !bg-primary-500;
+
+  border: 0;
+  padding: 8px;
+  border-radius: 4px;
+  color: white;
+  cursor: pointer;
+}

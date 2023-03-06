@@ -1,0 +1,16 @@
+.help-layout {
+  @apply w-full;
+}
+
+.help-layout nav {
+  @apply flex justify-center gap-8 mx-0 my-8;
+}
+.help-layout nav a {
+  @apply p-[10px] border-2 border-solid border-white rounded-[4px] no-underline;
+}
+.help-layout nav a:hover {
+  @apply border-primary-500;
+}
+.help-layout nav a.active {
+  @apply bg-primary-500;
+}

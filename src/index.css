@@ -21,32 +21,31 @@ p {
   @apply my-5;
 }
 
-h2,
-h1 {
+h1,
+h2 {
   @apply text-3xl font-bold mb-4;
+}
+
+h3 {
+  @apply text-2xl font-bold mb-3;
 }
 
 main {
   @apply flex justify-between items-center max-w-7xl mx-auto my-0;
 }
 
-nav {
+header nav {
   @apply flex justify-between items-center max-w-7xl mx-auto mt-0 mb-5;
 }
 
-nav .menuLink {
+header nav .menuLink {
   @apply flex gap-5;
 }
 
-nav .menuLink a {
+header nav .menuLink a {
   @apply text-lg p-[6px] rounded hover:underline;
 }
 
-nav .menuLink a.active {
+header nav .menuLink a.active {
   @apply bg-primary-500 font-bold hover:no-underline;
-}
-
-code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
 }
