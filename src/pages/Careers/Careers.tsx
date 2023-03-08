@@ -10,7 +10,7 @@ const Careers = () => {
   return (
     <div className="careers">
       {careersData.map((data) => (
-        <Link key={data.id} to="/">
+        <Link key={data.id} to={data.id.toString()}>
           <p>{data.title}</p>
           <p>
             Based in

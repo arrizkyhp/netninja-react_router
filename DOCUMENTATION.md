@@ -1,14 +1,18 @@
+# Run Json Server
+
+```
+json-server -p 4000 -w ./data/db.json
+```
+
 # React Base Project Documentation
 
-Description
-===========
+# Description
 
 Base project ini dibuat menggunakan Vite.
 
 Base project ini digunakan untuk mengerjakan project dengan stack hanya react non Next.js.
 
-Folder Structure
-================
+# Folder Structure
 
 Struktur folder disini mengacu
 pada [Delightful React File/Directory Structure (joshwcomeau.com)](https://www.joshwcomeau.com/react/file-structure/)
@@ -103,29 +107,26 @@ index.hooks.ts dan type atau interface yg digunakan component tsb ada di Sidebar
 └── tsconfig.json
 ```
 
-Root
-----
+## Root
 
 Di dalam directory root ada beberapa file config dan [README.md](http://README.md) file.
 
-* .env: Digunakan untuk menyimpan credential dan/atau info environment dengan format key-value. Pada saat development
+- .env: Digunakan untuk menyimpan credential dan/atau info environment dengan format key-value. Pada saat development
   file ini dimasukkan ke .gitignore agar tidak di push ke repo
-* .eslintignore: Berisi list file yang akan di ignore oleh eslint
-* .eslintrc.cjs: Berisi konfigurasi linting untuk project
-* package.json, package-lock.json: berisi library-library yg di gunakan di project. Harap di diskusikan dulu jika ingin
+- .eslintignore: Berisi list file yang akan di ignore oleh eslint
+- .eslintrc.cjs: Berisi konfigurasi linting untuk project
+- package.json, package-lock.json: berisi library-library yg di gunakan di project. Harap di diskusikan dulu jika ingin
   menambahkan library selain yang di rekomendasikan.
-* postcss.config.cjs, tailwind.config.cjs: config dari tailwind, jika ingin setup theme di project anda bisa extend
+- postcss.config.cjs, tailwind.config.cjs: config dari tailwind, jika ingin setup theme di project anda bisa extend
   theme
   di tailwind.config.cjs
-* [README.md](http://README.md) berisi cara untuk setup dan run project
+- [README.md](http://README.md) berisi cara untuk setup dan run project
 
-Assets
-------
+## Assets
 
 Sesuai Namanya, asset-asset project di simpan di directory ini
 
-Components
-----------
+## Components
 
 Directory ini berisi komponen-komponen yang di gunakan secara global. Di directory ini ada subdirectory base, icons,
 layout, ui.
@@ -160,39 +161,36 @@ dibawah ini:
 import Arrow from './Arrow';
 import Chevron from './Chevron';
 
-export {Arrow, Chevron};
+export { Arrow, Chevron };
 ```
 
 Cara import icon dari komponen lain adalah sebagai berikut:
 
 ```typescript
-import {Arrow} from 'icons/';
+import { Arrow } from 'icons/';
 ```
 
-Constants
----------
+## Constants
 
 Berisikan file-file constant yang digunakan secara global. Penamaan file constant menggunakan case lowerCamelCase dan
-penamaan constant di dalam file tersebut menggunakan UPPER\_SNAKE\_CASE.
+penamaan constant di dalam file tersebut menggunakan UPPER_SNAKE_CASE.
 
 Contoh file cityValue.ts dengan isi:
 
 ```typescript
 export const CITY_DROPDOWN_VALUE = [
-  {id: 1, city: 'Bandung'},
-  {id: 2, city: 'Jakarta'},
+  { id: 1, city: 'Bandung' },
+  { id: 2, city: 'Jakarta' },
 ];
 ```
 
-Contexts
---------
+## Contexts
 
 Direktori ini berisi context-context yang akan digunakan di aplikasi. Jika ingin menambahkan context maka bisa membuat
 subdirektori di dalam direktori contexts ini, di dalam subdirektori bisa berisi file-file yang digunakan di context
 tersebut seperti types, helpers, dll.
 
-Helpers dan Utils
------------------
+## Helpers dan Utils
 
 Direktori ini berisi method-method yang digunakan secara global. Helpers digunakan untuk menyimpan method-method yang
 hanya berlaku di projek tersebut, misal method `getChipColorByStatus` dimana method ini berfungsi untuk me-return warna
@@ -202,8 +200,7 @@ misalnya `stringToTitlecase` atau `numberToIDR` .
 1 file dalam helpers atau utils berisi hanya 1 method saja dengan nama file yang sama dengan nama methodnya. Penamaan
 file menggunakan lowerCamelCase.
 
-Pages
------
+## Pages
 
 Direktori ini berisi komponen-komponen utama atau halaman pada fitur. Untuk menambahkan komponen dapat membuat
 subdirektori bernama komponen tersebut menggunakan UpperCamelCase.
@@ -213,7 +210,7 @@ Didalam subdirektori tersebut terdiri dari:
 1. index.tsx: berfungsi sebagai entry point terhadap komponen tersebut, contoh isi index.tsx sederhananya seperti ini:
 
 ```typescript
-import {lazy} from 'react';
+import { lazy } from 'react';
 
 export default lazy(() => import('./PokemonList'));
 ```
@@ -227,57 +224,51 @@ import React from 'react';
 import useView from './PokemonList .hooks';
 
 const PokemonList = () => {
-  const {pokemons} = usePokemonList();
+  const { pokemons } = usePokemonList();
 
   return (
-      <>
-        <h1>Pokémon List</h1>
-        {pokemons.map((pokemon) => (
-            {pokemon}
-        ))}
-      </>
+    <>
+      <h1>Pokémon List</h1>
+      {pokemons.map((pokemon) => ({ pokemon }))}
+    </>
   );
 };
 
 export default PokemonList;
 ```
 
-* \[NamaKomponen\].hooks.ts: file ini berisi dari logic business untuk view dari komponen tersebut. Contoh:
+- \[NamaKomponen\].hooks.ts: file ini berisi dari logic business untuk view dari komponen tersebut. Contoh:
 
 ```typescript
 const usePokemonList = () => {
   /* ...
    insert business logic here
   */
-  return {pokemons}
-}
+  return { pokemons };
+};
 
 export default usePokemonList;
 ```
 
-* Untuk file-file tambahan seperti types, helpers, constants, styles, dll. Bisa membuat file tersebut dengan nama file
+- Untuk file-file tambahan seperti types, helpers, constants, styles, dll. Bisa membuat file tersebut dengan nama file
   \[NamaKomponen\].\[tipe file\].ts, contohnya PokemonList.types.ts.
 
-Styles
-------
+## Styles
 
 Berisikan file-file style yang digunakan secara global. Extension file bisa menggunakan .css atau .scss.
 
-Types
------
+## Types
 
 Direktori ini digunakan untuk type-type yang digunakan di projek secara global.
 
 Di dalam directory types ada file index.ts yang isinya adalah entry point terhadap type yang ada di direktori types.
 
-Direktori Lainnya
------------------
+## Direktori Lainnya
 
 Untuk direktori reducers dan queries ini kondisional, dibuat jika projek menggunakan reducer atau react query. Untuk
 penggunaan dan penamaan file disamakan dengan file-file lainnya.
 
-Coding Convention/Style Guide
-=============================
+# Coding Convention/Style Guide
 
 Style guide yang di gunakan di base project ini mengacu pada style guide dari airbnb/javascript dan airbnb/react.
 
@@ -290,7 +281,7 @@ Untuk detailnya bisa mengunjungi link dibawah:
 Selain itu, ada tambahan style guide mengenai urutan import dimana urutan import adalah sebagai berikut:
 
 1. Package react
-2. Package dari node\_modules
+2. Package dari node_modules
 3. Package internal (component, type, dll.)
 4. Parent import
 5. Import dari folder yang sama
