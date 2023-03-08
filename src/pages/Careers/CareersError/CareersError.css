@@ -1,0 +1,3 @@
+.careers-error a {
+  @apply underline hover:text-primary-500;
+}

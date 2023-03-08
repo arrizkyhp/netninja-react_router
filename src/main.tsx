@@ -13,6 +13,7 @@ import {
   Careers,
   CareersDetail,
   careersDetailLoader,
+  CareersError,
   careersLoader,
 } from '@/pages/Careers';
 import { Contact, Faq } from '@/pages/Help';
@@ -34,7 +35,11 @@ const router = createBrowserRouter(
         <Route path="contact" element={<Contact />} />
       </Route>
 
-      <Route path="careers" element={<CareersLayout />}>
+      <Route
+        path="careers"
+        element={<CareersLayout />}
+        errorElement={<CareersError />}
+      >
         <Route index element={<Careers />} loader={careersLoader} />
         <Route
           path=":id"

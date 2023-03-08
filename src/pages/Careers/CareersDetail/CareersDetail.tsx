@@ -1,9 +1,7 @@
 /* eslint-disable @typescript-eslint/no-explicit-any */
 import { useLoaderData } from 'react-router-dom';
 
-import type {
-  CareersDetailDataType,
-} from '@/pages/Careers/CareersDetail/CareersDetail.type';
+import type { CareersDetailDataType } from '@/pages/Careers/CareersDetail/CareersDetail.type';
 
 import './CareersDetail.css';
 
@@ -44,6 +42,11 @@ export const careersDetailLoader = async ({ params }: any) => {
   const { id } = params;
 
   const response = await fetch(`http://localhost:4000/careers/${id}`);
+
+  if (!response.ok) {
+    throw Error('Could not find that career');
+  }
+
   return response.json();
 };
 

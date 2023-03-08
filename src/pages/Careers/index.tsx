@@ -3,7 +3,12 @@ import {
   CareersDetail,
   careersDetailLoader,
 } from '@/pages/Careers/CareersDetail';
+import CareersError from '@/pages/Careers/CareersError';
 
 export {
-  Careers, CareersDetail, careersDetailLoader, careersLoader,
+  Careers,
+  CareersDetail,
+  careersDetailLoader,
+  CareersError,
+  careersLoader,
 };
