@@ -17,6 +17,7 @@ import {
   careersLoader,
 } from '@/pages/Careers';
 import { Contact, Faq } from '@/pages/Help';
+import { contactAction } from '@/pages/Help/Contact/Contact';
 import Home from '@/pages/Home';
 import NotFound from '@/pages/NotFound';
 
@@ -32,7 +33,7 @@ const router = createBrowserRouter(
 
       <Route path="help" element={<HelpLayout />}>
         <Route path="faq" element={<Faq />} />
-        <Route path="contact" element={<Contact />} />
+        <Route path="contact" element={<Contact />} action={contactAction} />
       </Route>
 
       <Route
