@@ -1,0 +1,17 @@
+.breadcrumbs {
+  @apply flex justify-start items-center max-w-7xl mx-auto mt-0 mb-10;
+}
+.breadcrumbs > * {
+  display: inline-block;
+  margin-right: 5px;
+}
+.breadcrumbs .crumb:after {
+  content: '>';
+  margin-left: 5px;
+}
+.breadcrumbs .crumb:last-child:after {
+  display: none;
+}
+.breadcrumbs .crumb a {
+  @apply text-[#ddd] hover:underline capitalize;
+}
